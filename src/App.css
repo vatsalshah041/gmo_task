@@ -1,3 +1,6 @@
+.error{
+  color:red;
+}
 #root {
   margin: 0;
   padding: 0;
