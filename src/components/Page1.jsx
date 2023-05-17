@@ -1,4 +1,4 @@
-import { Paper, Grid, Box, Typography,TextField, Button } from "@mui/material";
+import { Paper, Grid, Box, Typography,TextField, Button, linkClasses } from "@mui/material";
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -19,37 +19,47 @@ export default function Page1() {
     {
       setNerror(" * Compulsory");
       setError(false);
+      localStorage.setItem("error",false);
     }
     else
     {
       setNerror("");
       setError(true);
+      localStorage.setItem("name",name);
+      localStorage.setItem("error",true);
     }
     if(phone=="")
     {
       setPerror(" * Compulsory")
       setError(false);
+      localStorage.setItem("error",false);
     }
     else
     {
       setPerror("")
       setError(true);
+      localStorage.setItem("phone",phone)
+      localStorage.setItem("error",true);
     }
     if(email=="")
     {
       setEerror(" * Compulsory")
       setError(false);
+      localStorage.setItem("error",false);
+      
     }
     else
     {
       setEerror("")
       setError(true);
+      localStorage.setItem("email",email)
+      localStorage.setItem("error",true);
     }
     nav();
     
   }
   const nav=()=>{
-    if(error==true)
+    if(localStorage.getItem("error")=='true')
     {
       navigate('/page2');
     }
